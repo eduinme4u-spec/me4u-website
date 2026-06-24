@@ -85,15 +85,10 @@ img {
   font-weight: 800;
 }
 
-.brand-mark {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  color: #fff;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  border-radius: 12px;
-  box-shadow: 0 12px 28px rgba(197, 22, 47, 0.25);
+.brand-logo {
+  width: 82px;
+  height: auto;
+  object-fit: contain;
 }
 
 .main-nav {
