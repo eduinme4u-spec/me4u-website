@@ -297,7 +297,10 @@ img {
 .leadForm input,
 .leadForm select,
 .leadForm textarea,
-.loginForm input {
+.loginForm input,
+.leadEditGrid input,
+.leadEditGrid select,
+.leadEditGrid textarea {
   width: 100%;
   padding: 14px 15px;
   border: 1px solid var(--line);
@@ -416,31 +419,138 @@ img {
   padding: 24px;
 }
 
-.leadTable {
-  display: grid;
-  gap: 8px;
-  overflow-x: auto;
+.leadSectionHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 22px;
 }
 
-.leadTableHead,
-.leadTableRow {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr 1fr 0.8fr 0.9fr;
-  gap: 12px;
-  min-width: 860px;
-  padding: 14px;
-  border-radius: 14px;
+.leadSectionHeader h2 {
+  margin: 0;
+  font-size: 30px;
 }
 
-.leadTableHead {
+.leadSectionHeader p {
+  margin: 6px 0 0;
   color: var(--muted);
-  background: #fff4f5;
+}
+
+.leadCards {
+  display: grid;
+  gap: 18px;
+}
+
+.leadCard {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+}
+
+.leadCardHeader,
+.leadCardActions,
+.leadQuickActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.leadCardHeader {
+  justify-content: space-between;
+}
+
+.leadCardHeader h3 {
+  margin: 4px 0;
+  font-size: 28px;
+}
+
+.leadCardHeader p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.leadStatus {
+  display: inline-flex;
+  padding: 6px 10px;
+  color: var(--primary);
+  background: rgba(226, 32, 48, 0.1);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: capitalize;
+}
+
+.leadInfoGrid,
+.leadEditGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.leadInfoGrid div {
+  padding: 14px;
+  background: #fff8f7;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.leadInfoGrid span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
   font-weight: 900;
 }
 
-.leadTableRow {
+.leadInfoGrid strong {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.leadMessage {
+  margin: 0;
+  padding: 14px;
+  color: var(--muted);
+  background: #fff8f7;
+  border-radius: 16px;
+}
+
+.leadEditGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.leadEditGrid label {
+  display: grid;
+  gap: 8px;
+  font-weight: 900;
+}
+
+.dangerBtn {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  color: var(--primary-dark);
   background: #fff;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(151, 14, 34, 0.3);
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+}
+
+.saveStatus {
+  color: #147a3c;
+  font-weight: 900;
+}
+
+.saveStatus.error {
+  color: var(--primary-dark);
 }
 
 .emptyState {
@@ -461,6 +571,8 @@ img {
   .directorGrid,
   .directorCard,
   .leadForm,
+  .leadInfoGrid,
+  .leadEditGrid,
   .dashboardStats {
     grid-template-columns: 1fr;
   }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { AdminLogoutButton } from "@/components/AdminLogoutButton";
+import { LeadManager } from "@/components/LeadManager";
 import { createSupabaseAdmin } from "@/lib/supabase/admin";
 import { createSupabaseServer } from "@/lib/supabase/server";
 import type { Lead } from "@/lib/leads";
@@ -54,31 +55,13 @@ export default async function AdminDashboardPage() {
       </section>
 
       <section className="leadTableCard">
-        <h2>Recent enquiries</h2>
-        {leads.length === 0 ? (
-          <p className="emptyState">
-            No leads yet, or Supabase environment variables are not connected.
-          </p>
-        ) : (
-          <div className="leadTable">
-            <div className="leadTableHead">
-              <span>Name</span>
-              <span>Phone</span>
-              <span>Course</span>
-              <span>Status</span>
-              <span>Follow-up</span>
-            </div>
-            {leads.map((lead) => (
-              <div className="leadTableRow" key={lead.id}>
-                <span>{lead.full_name}</span>
-                <span>{lead.phone}</span>
-                <span>{lead.course_interest}</span>
-                <span>{lead.status.replace("_", " ")}</span>
-                <span>{lead.follow_up_date || "Not set"}</span>
-              </div>
-            ))}
+        <div className="leadSectionHeader">
+          <div>
+            <h2>Recent enquiries</h2>
+            <p>Update lead status, schedule follow-ups, and save notes.</p>
           </div>
-        )}
+        </div>
+        <LeadManager leads={leads} />
       </section>
     </main>
   );
