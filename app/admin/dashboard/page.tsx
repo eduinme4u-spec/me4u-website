@@ -11,8 +11,9 @@ async function getLeads(): Promise<Lead[]> {
     const supabase = createSupabaseAdmin();
     const { data, error } = await supabase
       .from("leads")
-      .select("*")
+      .select("*, lead_followups(*)")
       .order("created_at", { ascending: false })
+      .order("created_at", { referencedTable: "lead_followups", ascending: false })
       .limit(50);
 
     if (error) {

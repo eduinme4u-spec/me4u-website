@@ -43,6 +43,7 @@ export function LeadManager({ leads }: { leads: Lead[] }) {
 
 function LeadEditor({ lead }: { lead: Lead }) {
   const router = useRouter();
+  const followups = lead.lead_followups || [];
   const [status, setStatus] = useState<LeadStatus>(lead.status);
   const [followUpDate, setFollowUpDate] = useState(lead.follow_up_date || "");
   const [notes, setNotes] = useState(lead.notes || "");
@@ -126,6 +127,27 @@ function LeadEditor({ lead }: { lead: Lead }) {
       </div>
 
       {lead.message ? <p className="leadMessage">{lead.message}</p> : null}
+
+      <div className="followupHistory">
+        <h4>Follow-up history</h4>
+        {followups.length > 0 ? (
+          <div className="followupList">
+            {followups.map((followup) => (
+              <div className="followupItem" key={followup.id}>
+                <div>
+                  <strong>{followup.note}</strong>
+                  {followup.next_follow_up_date ? (
+                    <span>Next: {followup.next_follow_up_date}</span>
+                  ) : null}
+                </div>
+                <time>{formatDate(followup.created_at)}</time>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p>No follow-up notes saved yet.</p>
+        )}
+      </div>
 
       <div className="leadEditGrid">
         <label>

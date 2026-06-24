@@ -63,12 +63,16 @@ export async function PATCH(
 
   const followUpNote = textOrNull(body.follow_up_note);
   if (followUpNote) {
-    await supabase.from("lead_followups").insert({
+    const { error: followUpError } = await supabase.from("lead_followups").insert({
       lead_id: params.id,
       note: followUpNote,
       next_follow_up_date: textOrNull(body.follow_up_date),
       created_by: user.id
     });
+
+    if (followUpError) {
+      return NextResponse.json({ error: followUpError.message }, { status: 500 });
+    }
   }
 
   return NextResponse.json({ ok: true });

@@ -18,6 +18,16 @@ export type Lead = {
   follow_up_date: string | null;
   notes: string | null;
   created_at: string;
+  lead_followups?: LeadFollowup[];
+};
+
+export type LeadFollowup = {
+  id: string;
+  lead_id: string;
+  note: string;
+  next_follow_up_date: string | null;
+  created_by: string | null;
+  created_at: string;
 };
 
 export const leadStatuses: Array<{ label: string; value: LeadStatus }> = [
