@@ -1,6 +1,16 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { AdminLoginForm } from "@/components/AdminLoginForm";
+import { createSupabaseServer } from "@/lib/supabase/server";
 
-export default function AdminLoginPage() {
+export default async function AdminLoginPage() {
+  const supabase = createSupabaseServer();
+  const { data } = await supabase.auth.getUser();
+
+  if (data.user) {
+    redirect("/admin/dashboard");
+  }
+
   return (
     <main className="adminAuthPage">
       <section className="adminAuthCard">
@@ -8,20 +18,10 @@ export default function AdminLoginPage() {
         <span className="eyebrow">Admin Login</span>
         <h1>ME4U lead management</h1>
         <p>
-          Connect Supabase Auth to enable secure admin login. This page is ready
-          for email/password authentication in the next setup step.
+          Login with your admin email and password to view enquiries, lead
+          status, and follow-up work.
         </p>
-        <form className="loginForm">
-          <label>
-            Email
-            <input type="email" placeholder="admin@me4u.co.in" />
-          </label>
-          <label>
-            Password
-            <input type="password" placeholder="Password" />
-          </label>
-          <button className="primaryBtn" type="button">Login setup pending</button>
-        </form>
+        <AdminLoginForm />
       </section>
     </main>
   );

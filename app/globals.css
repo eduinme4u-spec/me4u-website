@@ -389,6 +389,12 @@ img {
   margin-bottom: 28px;
 }
 
+.dashboardActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .dashboardStats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

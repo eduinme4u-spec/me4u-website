@@ -1,5 +1,8 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { AdminLogoutButton } from "@/components/AdminLogoutButton";
 import { createSupabaseAdmin } from "@/lib/supabase/admin";
+import { createSupabaseServer } from "@/lib/supabase/server";
 import type { Lead } from "@/lib/leads";
 
 async function getLeads(): Promise<Lead[]> {
@@ -22,6 +25,13 @@ async function getLeads(): Promise<Lead[]> {
 }
 
 export default async function AdminDashboardPage() {
+  const supabase = createSupabaseServer();
+  const { data } = await supabase.auth.getUser();
+
+  if (!data.user) {
+    redirect("/admin/login");
+  }
+
   const leads = await getLeads();
 
   return (
@@ -31,7 +41,10 @@ export default async function AdminDashboardPage() {
           <span className="eyebrow">Admin Dashboard</span>
           <h1>Lead follow-ups</h1>
         </div>
-        <Link className="secondaryBtn" href="/">View website</Link>
+        <div className="dashboardActions">
+          <Link className="secondaryBtn" href="/">View website</Link>
+          <AdminLogoutButton />
+        </div>
       </header>
 
       <section className="dashboardStats">
