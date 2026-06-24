@@ -1,14 +1,16 @@
 :root {
-  --ink: #172033;
-  --muted: #697287;
-  --line: #e7ebf3;
-  --bg: #f7f9fc;
+  --ink: #20161a;
+  --muted: #75656a;
+  --line: #f0dce0;
+  --bg: #fff8f7;
   --panel: #ffffff;
-  --primary: #0f6d5d;
-  --primary-dark: #0a4d43;
-  --accent: #f2b84b;
-  --accent-soft: #fff2d1;
-  --shadow: 0 24px 70px rgba(26, 38, 64, 0.14);
+  --primary: #c5162f;
+  --primary-dark: #8f0f23;
+  --primary-deep: #5f0715;
+  --accent: #ffbd4a;
+  --accent-soft: #fff0e5;
+  --red-soft: #ffe7ea;
+  --shadow: 0 24px 70px rgba(105, 20, 32, 0.16);
 }
 
 * {
@@ -89,9 +91,9 @@ img {
   height: 42px;
   place-items: center;
   color: #fff;
-  background: var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   border-radius: 12px;
-  box-shadow: 0 12px 28px rgba(15, 109, 93, 0.25);
+  box-shadow: 0 12px 28px rgba(197, 22, 47, 0.25);
 }
 
 .main-nav {
@@ -121,8 +123,8 @@ img {
 .nav-cta,
 .primary-btn {
   color: #fff;
-  background: var(--primary);
-  box-shadow: 0 16px 30px rgba(15, 109, 93, 0.22);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  box-shadow: 0 16px 30px rgba(197, 22, 47, 0.24);
 }
 
 .secondary-btn {
@@ -138,8 +140,9 @@ img {
   align-items: center;
   padding: clamp(54px, 8vw, 108px) clamp(20px, 5vw, 72px) 76px;
   background:
-    radial-gradient(circle at 12% 18%, rgba(242, 184, 75, 0.22), transparent 28%),
-    linear-gradient(135deg, #ffffff 0%, #eef8f4 58%, #fff7e5 100%);
+    radial-gradient(circle at 12% 18%, rgba(255, 189, 74, 0.24), transparent 28%),
+    radial-gradient(circle at 88% 16%, rgba(197, 22, 47, 0.14), transparent 30%),
+    linear-gradient(135deg, #ffffff 0%, #fff0f1 54%, #fff7e8 100%);
 }
 
 .hero-content {
@@ -152,7 +155,7 @@ img {
   margin-bottom: 14px;
   padding: 8px 13px;
   color: var(--primary);
-  background: rgba(15, 109, 93, 0.1);
+  background: rgba(197, 22, 47, 0.1);
   border-radius: 999px;
   font-size: 13px;
   font-weight: 800;
@@ -232,6 +235,7 @@ img {
   width: 100%;
   height: 510px;
   object-fit: cover;
+  object-position: center top;
 }
 
 .session-card {
@@ -241,7 +245,7 @@ img {
   bottom: 24px;
   padding: 20px;
   color: #fff;
-  background: rgba(10, 77, 67, 0.9);
+  background: rgba(95, 7, 21, 0.91);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 22px;
   backdrop-filter: blur(14px);
@@ -293,9 +297,9 @@ img {
 .goal-grid div {
   padding: 13px 18px;
   background: var(--accent-soft);
-  border: 1px solid rgba(242, 184, 75, 0.38);
+  border: 1px solid rgba(197, 22, 47, 0.18);
   border-radius: 999px;
-  color: #7b5411;
+  color: var(--primary-dark);
   font-weight: 800;
 }
 
@@ -307,12 +311,14 @@ img {
 
 .section-heading h2,
 .split-section h2,
+.founder-content h2,
 .pricing-card h2 {
   font-size: clamp(30px, 4vw, 48px);
 }
 
 .section-heading p,
 .split-section p,
+.founder-content p,
 .pricing-card p,
 .testimonial-card p {
   color: var(--muted);
@@ -411,9 +417,64 @@ img {
   margin-bottom: 16px;
   place-items: center;
   color: var(--primary);
-  background: rgba(15, 109, 93, 0.1);
+  background: rgba(197, 22, 47, 0.1);
   border-radius: 12px;
   font-weight: 900;
+}
+
+.founder-section {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+  background:
+    radial-gradient(circle at 88% 20%, rgba(255, 189, 74, 0.22), transparent 24%),
+    linear-gradient(135deg, #fff 0%, #fff0f1 100%);
+}
+
+.founder-photo {
+  overflow: hidden;
+  border: 10px solid #fff;
+  border-radius: 34px;
+  box-shadow: var(--shadow);
+}
+
+.founder-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.founder-content {
+  max-width: 760px;
+}
+
+.founder-content h2 {
+  margin: 0;
+  line-height: 1.06;
+}
+
+.founder-content p {
+  margin: 20px 0 0;
+  font-size: 18px;
+}
+
+.founder-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.founder-points span {
+  padding: 12px 16px;
+  color: var(--primary-dark);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-weight: 800;
+  box-shadow: 0 12px 30px rgba(105, 20, 32, 0.08);
 }
 
 .pricing-section {
@@ -421,8 +482,8 @@ img {
   grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
   gap: 22px;
   background:
-    linear-gradient(135deg, rgba(15, 109, 93, 0.94), rgba(10, 77, 67, 0.94)),
-    url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1500&q=80") center/cover;
+    radial-gradient(circle at 12% 10%, rgba(255, 189, 74, 0.24), transparent 28%),
+    linear-gradient(135deg, var(--primary), var(--primary-deep));
 }
 
 .pricing-card,
@@ -466,7 +527,7 @@ img {
 .contact-card a {
   padding: 14px 18px;
   color: var(--primary);
-  background: rgba(15, 109, 93, 0.08);
+  background: rgba(197, 22, 47, 0.08);
   border-radius: 999px;
   font-weight: 800;
 }
@@ -477,7 +538,7 @@ img {
   gap: 20px;
   padding: 26px clamp(20px, 5vw, 72px);
   color: rgba(255, 255, 255, 0.78);
-  background: #101827;
+  background: var(--primary-deep);
 }
 
 .site-footer p {
@@ -502,6 +563,7 @@ img {
 
   .hero,
   .split-section,
+  .founder-section,
   .pricing-section {
     grid-template-columns: 1fr;
   }
