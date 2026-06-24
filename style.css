@@ -321,7 +321,6 @@ img {
 
 .section-heading h2,
 .split-section h2,
-.founder-content h2,
 .pricing-card h2 {
   font-size: clamp(30px, 4vw, 48px);
 }
@@ -433,20 +432,34 @@ img {
 }
 
 .founder-section {
-  display: grid;
-  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
-  gap: clamp(28px, 5vw, 64px);
-  align-items: center;
   background:
     radial-gradient(circle at 88% 20%, rgba(255, 189, 74, 0.22), transparent 24%),
     linear-gradient(135deg, #fff 0%, #fff0f1 100%);
 }
 
+.founder-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.founder-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.82fr) minmax(0, 1.18fr);
+  gap: 26px;
+  align-items: center;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--line);
+  border-radius: 34px;
+  box-shadow: var(--shadow);
+}
+
 .founder-photo {
   overflow: hidden;
   border: 10px solid #fff;
-  border-radius: 34px;
-  box-shadow: var(--shadow);
+  border-radius: 26px;
+  box-shadow: 0 18px 44px rgba(105, 20, 32, 0.12);
 }
 
 .founder-photo img {
@@ -457,16 +470,17 @@ img {
 }
 
 .founder-content {
-  max-width: 760px;
+  padding: 8px 8px 8px 0;
 }
 
-.founder-content h2 {
+.founder-content h3 {
   margin: 0;
   line-height: 1.06;
+  font-size: clamp(26px, 3vw, 36px);
 }
 
 .founder-content p {
-  margin: 20px 0 0;
+  margin: 16px 0 0;
   font-size: 18px;
 }
 
@@ -573,7 +587,6 @@ img {
 
   .hero,
   .split-section,
-  .founder-section,
   .pricing-section {
     grid-template-columns: 1fr;
   }
@@ -590,6 +603,15 @@ img {
 
   .goal-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .founder-grid,
+  .founder-card {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-content {
+    padding: 0 4px 8px;
   }
 
   .split-section > div:first-child {
