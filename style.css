@@ -85,10 +85,25 @@ img {
   font-weight: 800;
 }
 
+.brand-logo-stack {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 6px;
+  line-height: 1;
+}
+
 .brand-logo {
-  width: 112px;
+  width: 104px;
   height: auto;
   object-fit: contain;
+}
+
+.brand-since {
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
 }
 
 .main-nav {
