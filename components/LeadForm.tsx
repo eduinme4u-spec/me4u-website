@@ -25,7 +25,7 @@ export function LeadForm() {
 
     if (response.ok) {
       setState("success");
-      setMessage("Enquiry received. Our team will contact you soon.");
+      setMessage("Demo class registration received. Our team will contact you soon.");
       form.reset();
       return;
     }
@@ -71,7 +71,7 @@ export function LeadForm() {
         <textarea name="message" rows={4} placeholder="Tell us your goal or preferred batch time" />
       </label>
       <button className="primaryBtn" disabled={state === "loading"}>
-        {state === "loading" ? "Submitting..." : "Submit Enquiry"}
+        {state === "loading" ? "Submitting..." : "Submit Demo Class Registration"}
       </button>
       {message ? <p className={`formMessage ${state}`}>{message}</p> : null}
     </form>

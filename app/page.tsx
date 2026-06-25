@@ -24,7 +24,7 @@ export default function HomePage() {
     <main>
       <div className="topBar">
         <span>Admissions open for online and offline batches</span>
-        <a href="#lead-form">Book a free counselling call</a>
+        <a href="#lead-form">Book a free demo class</a>
       </div>
 
       <header className="siteHeader">
@@ -37,7 +37,7 @@ export default function HomePage() {
         <nav className="mainNav" aria-label="Main navigation">
           <a href="#courses">Courses</a>
           <a href="#directors">Directors</a>
-          <a href="#lead-form">Enquiry</a>
+          <a href="#lead-form">Demo Class</a>
           <a href="/admin/login">Admin</a>
         </nav>
       </header>
@@ -51,7 +51,7 @@ export default function HomePage() {
             preparation, public speaking, and student follow-up management.
           </p>
           <div className="heroActions">
-            <a className="primaryBtn" href="#lead-form">Register Enquiry</a>
+            <a className="primaryBtn" href="#lead-form">Register for Demo Class</a>
             <a className="secondaryBtn" href="tel:+918904884654">Call Now</a>
           </div>
           <div className="stats">
@@ -69,7 +69,7 @@ export default function HomePage() {
         <div className="sectionHeading">
           <span className="eyebrow">Courses</span>
           <h2>Programs for students and professionals.</h2>
-          <p>Every enquiry can now flow into your lead dashboard for follow-up.</p>
+          <p>Every demo class registration can flow into your admin dashboard for follow-up.</p>
         </div>
         <div className="courseGrid">
           {courses.map((course) => (
@@ -108,9 +108,9 @@ export default function HomePage() {
 
       <section className="section leadSection" id="lead-form">
         <div className="sectionHeading">
-          <span className="eyebrow">Lead Generation</span>
-          <h2>Capture enquiries directly into your database.</h2>
-          <p>Students can submit this form, and admins can follow up from the dashboard.</p>
+          <span className="eyebrow">Demo Class Registration</span>
+          <h2>Demo Class Registration Form</h2>
+          <p>Students can register for a demo class, and admins can follow up from the dashboard.</p>
         </div>
         <LeadForm />
       </section>
